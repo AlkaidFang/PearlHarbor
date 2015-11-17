@@ -1,0 +1,22 @@
+package Packet;
+option java_package = "com.alkaid.pearlharbor.net";
+option java_outer_classname = "PacketProto";
+
+message hello
+{
+	required int32 guid = 1;
+	required float delta = 2;
+	required string time = 3;
+}
+
+message Login
+{
+	required string name = 1;
+	required string password = 2;
+}
+
+message Logout
+{
+	required string name = 1;
+	required string time = 2;
+}
