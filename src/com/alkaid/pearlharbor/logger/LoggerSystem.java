@@ -5,7 +5,6 @@ import org.apache.log4j.PropertyConfigurator;
 
 import com.alkaid.pearlharbor.game.Game;
 import com.alkaid.pearlharbor.util.LifeCycle;
-import com.google.gson.JsonParser;
 
 public class LoggerSystem implements LifeCycle{
 	
