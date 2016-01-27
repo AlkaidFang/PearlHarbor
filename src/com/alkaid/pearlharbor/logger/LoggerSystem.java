@@ -62,9 +62,9 @@ public class LoggerSystem implements LifeCycle{
 	}
 
 	@Override
-	public boolean destroy() {
+	public void destroy() {
 		// TODO Auto-generated method stub
-		return true;
+
 	}
 	
 	public Logger getLogger(LogType type)

@@ -8,5 +8,5 @@ public interface LifeCycle {
 	public void tick();
 
 
-	public boolean destroy();
+	public void destroy();
 }

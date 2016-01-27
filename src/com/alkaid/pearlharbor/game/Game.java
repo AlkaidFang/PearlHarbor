@@ -125,16 +125,27 @@ public class Game implements LifeCycle{
 	public void tick() {
 		// TODO Auto-generated method stub
 		// do all system tick
-
-
+		
+		LoggerSystem.getInstance().tick();
+		
+		DataProviderSystem.getInstance().tick();
+		
+		PlayerSystem.getInstance().tick();
+		
+		NetSystem.getInstance().tick();
 	}
 
 	@Override
-	public boolean destroy() {
+	public void destroy() {
 		// TODO Auto-generated method stub
 		
+		LoggerSystem.getInstance().tick();
 		
-		return true;
+		DataProviderSystem.getInstance().tick();
+		
+		PlayerSystem.getInstance().tick();
+		
+		NetSystem.getInstance().tick();
 	}
 
 	public String getLogPropertiesPath() {

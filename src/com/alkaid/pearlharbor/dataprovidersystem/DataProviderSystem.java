@@ -54,9 +54,9 @@ public class DataProviderSystem implements LifeCycle{
 	}
 
 	@Override
-	public boolean destroy() {
+	public void destroy() {
 		// TODO Auto-generated method stub
-		return true;
+		
 	}
 	
 	private void registerDataProvider(IDataProvider dataProvider)

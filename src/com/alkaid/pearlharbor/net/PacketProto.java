@@ -8,62 +8,71 @@ public final class PacketProto {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface helloOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Packet.hello)
+  public interface CS_HelloWorldOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Packet.CS_HelloWorld)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 guid = 1;</code>
+     * <code>required int32 _int = 1;</code>
      */
-    boolean hasGuid();
+    boolean hasInt();
     /**
-     * <code>required int32 guid = 1;</code>
+     * <code>required int32 _int = 1;</code>
      */
-    int getGuid();
+    int getInt();
 
     /**
-     * <code>required float delta = 2;</code>
+     * <code>required float _float = 2;</code>
      */
-    boolean hasDelta();
+    boolean hasFloat();
     /**
-     * <code>required float delta = 2;</code>
+     * <code>required float _float = 2;</code>
      */
-    float getDelta();
+    float getFloat();
 
     /**
-     * <code>required string time = 3;</code>
+     * <code>required int64 _long = 3;</code>
      */
-    boolean hasTime();
+    boolean hasLong();
     /**
-     * <code>required string time = 3;</code>
+     * <code>required int64 _long = 3;</code>
      */
-    java.lang.String getTime();
+    long getLong();
+
     /**
-     * <code>required string time = 3;</code>
+     * <code>required string _string = 4;</code>
+     */
+    boolean hasString();
+    /**
+     * <code>required string _string = 4;</code>
+     */
+    java.lang.String getString();
+    /**
+     * <code>required string _string = 4;</code>
      */
     com.google.protobuf.ByteString
-        getTimeBytes();
+        getStringBytes();
   }
   /**
-   * Protobuf type {@code Packet.hello}
+   * Protobuf type {@code Packet.CS_HelloWorld}
    */
-  public static final class hello extends
+  public static final class CS_HelloWorld extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:Packet.hello)
-      helloOrBuilder {
-    // Use hello.newBuilder() to construct.
-    private hello(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:Packet.CS_HelloWorld)
+      CS_HelloWorldOrBuilder {
+    // Use CS_HelloWorld.newBuilder() to construct.
+    private CS_HelloWorld(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private hello(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CS_HelloWorld(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final hello defaultInstance;
-    public static hello getDefaultInstance() {
+    private static final CS_HelloWorld defaultInstance;
+    public static CS_HelloWorld getDefaultInstance() {
       return defaultInstance;
     }
 
-    public hello getDefaultInstanceForType() {
+    public CS_HelloWorld getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -73,7 +82,7 @@ public final class PacketProto {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private hello(
+    private CS_HelloWorld(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -98,18 +107,23 @@ public final class PacketProto {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              guid_ = input.readInt32();
+              Int_ = input.readInt32();
               break;
             }
             case 21: {
               bitField0_ |= 0x00000002;
-              delta_ = input.readFloat();
+              Float_ = input.readFloat();
               break;
             }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 24: {
               bitField0_ |= 0x00000004;
-              time_ = bs;
+              Long_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              String_ = bs;
               break;
             }
           }
@@ -126,75 +140,90 @@ public final class PacketProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_hello_descriptor;
+      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_CS_HelloWorld_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_hello_fieldAccessorTable
+      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_CS_HelloWorld_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.alkaid.pearlharbor.net.PacketProto.hello.class, com.alkaid.pearlharbor.net.PacketProto.hello.Builder.class);
+              com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.class, com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<hello> PARSER =
-        new com.google.protobuf.AbstractParser<hello>() {
-      public hello parsePartialFrom(
+    public static com.google.protobuf.Parser<CS_HelloWorld> PARSER =
+        new com.google.protobuf.AbstractParser<CS_HelloWorld>() {
+      public CS_HelloWorld parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new hello(input, extensionRegistry);
+        return new CS_HelloWorld(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<hello> getParserForType() {
+    public com.google.protobuf.Parser<CS_HelloWorld> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    public static final int GUID_FIELD_NUMBER = 1;
-    private int guid_;
+    public static final int _INT_FIELD_NUMBER = 1;
+    private int Int_;
     /**
-     * <code>required int32 guid = 1;</code>
+     * <code>required int32 _int = 1;</code>
      */
-    public boolean hasGuid() {
+    public boolean hasInt() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 guid = 1;</code>
+     * <code>required int32 _int = 1;</code>
      */
-    public int getGuid() {
-      return guid_;
+    public int getInt() {
+      return Int_;
     }
 
-    public static final int DELTA_FIELD_NUMBER = 2;
-    private float delta_;
+    public static final int _FLOAT_FIELD_NUMBER = 2;
+    private float Float_;
     /**
-     * <code>required float delta = 2;</code>
+     * <code>required float _float = 2;</code>
      */
-    public boolean hasDelta() {
+    public boolean hasFloat() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required float delta = 2;</code>
+     * <code>required float _float = 2;</code>
      */
-    public float getDelta() {
-      return delta_;
+    public float getFloat() {
+      return Float_;
     }
 
-    public static final int TIME_FIELD_NUMBER = 3;
-    private java.lang.Object time_;
+    public static final int _LONG_FIELD_NUMBER = 3;
+    private long Long_;
     /**
-     * <code>required string time = 3;</code>
+     * <code>required int64 _long = 3;</code>
      */
-    public boolean hasTime() {
+    public boolean hasLong() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string time = 3;</code>
+     * <code>required int64 _long = 3;</code>
      */
-    public java.lang.String getTime() {
-      java.lang.Object ref = time_;
+    public long getLong() {
+      return Long_;
+    }
+
+    public static final int _STRING_FIELD_NUMBER = 4;
+    private java.lang.Object String_;
+    /**
+     * <code>required string _string = 4;</code>
+     */
+    public boolean hasString() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required string _string = 4;</code>
+     */
+    public java.lang.String getString() {
+      java.lang.Object ref = String_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -202,22 +231,22 @@ public final class PacketProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          time_ = s;
+          String_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string time = 3;</code>
+     * <code>required string _string = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getTimeBytes() {
-      java.lang.Object ref = time_;
+        getStringBytes() {
+      java.lang.Object ref = String_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        time_ = b;
+        String_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -225,9 +254,10 @@ public final class PacketProto {
     }
 
     private void initFields() {
-      guid_ = 0;
-      delta_ = 0F;
-      time_ = "";
+      Int_ = 0;
+      Float_ = 0F;
+      Long_ = 0L;
+      String_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -235,15 +265,19 @@ public final class PacketProto {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasGuid()) {
+      if (!hasInt()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasDelta()) {
+      if (!hasFloat()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTime()) {
+      if (!hasLong()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasString()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -255,13 +289,16 @@ public final class PacketProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, guid_);
+        output.writeInt32(1, Int_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, delta_);
+        output.writeFloat(2, Float_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getTimeBytes());
+        output.writeInt64(3, Long_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getStringBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -274,15 +311,19 @@ public final class PacketProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, guid_);
+          .computeInt32Size(1, Int_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, delta_);
+          .computeFloatSize(2, Float_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getTimeBytes());
+          .computeInt64Size(3, Long_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getStringBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -296,53 +337,53 @@ public final class PacketProto {
       return super.writeReplace();
     }
 
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(byte[] data)
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(java.io.InputStream input)
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseDelimitedFrom(java.io.InputStream input)
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseDelimitedFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.hello parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -351,7 +392,7 @@ public final class PacketProto {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.alkaid.pearlharbor.net.PacketProto.hello prototype) {
+    public static Builder newBuilder(com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -363,25 +404,25 @@ public final class PacketProto {
       return builder;
     }
     /**
-     * Protobuf type {@code Packet.hello}
+     * Protobuf type {@code Packet.CS_HelloWorld}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Packet.hello)
-        com.alkaid.pearlharbor.net.PacketProto.helloOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Packet.CS_HelloWorld)
+        com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorldOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_hello_descriptor;
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_CS_HelloWorld_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_hello_fieldAccessorTable
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_CS_HelloWorld_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.alkaid.pearlharbor.net.PacketProto.hello.class, com.alkaid.pearlharbor.net.PacketProto.hello.Builder.class);
+                com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.class, com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.Builder.class);
       }
 
-      // Construct using com.alkaid.pearlharbor.net.PacketProto.hello.newBuilder()
+      // Construct using com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -401,12 +442,14 @@ public final class PacketProto {
 
       public Builder clear() {
         super.clear();
-        guid_ = 0;
+        Int_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        delta_ = 0F;
+        Float_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
-        time_ = "";
+        Long_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
+        String_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -416,62 +459,69 @@ public final class PacketProto {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_hello_descriptor;
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_CS_HelloWorld_descriptor;
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.hello getDefaultInstanceForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.hello.getDefaultInstance();
+      public com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld getDefaultInstanceForType() {
+        return com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.getDefaultInstance();
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.hello build() {
-        com.alkaid.pearlharbor.net.PacketProto.hello result = buildPartial();
+      public com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld build() {
+        com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.hello buildPartial() {
-        com.alkaid.pearlharbor.net.PacketProto.hello result = new com.alkaid.pearlharbor.net.PacketProto.hello(this);
+      public com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld buildPartial() {
+        com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld result = new com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.guid_ = guid_;
+        result.Int_ = Int_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.delta_ = delta_;
+        result.Float_ = Float_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.time_ = time_;
+        result.Long_ = Long_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.String_ = String_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.alkaid.pearlharbor.net.PacketProto.hello) {
-          return mergeFrom((com.alkaid.pearlharbor.net.PacketProto.hello)other);
+        if (other instanceof com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld) {
+          return mergeFrom((com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.alkaid.pearlharbor.net.PacketProto.hello other) {
-        if (other == com.alkaid.pearlharbor.net.PacketProto.hello.getDefaultInstance()) return this;
-        if (other.hasGuid()) {
-          setGuid(other.getGuid());
+      public Builder mergeFrom(com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld other) {
+        if (other == com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld.getDefaultInstance()) return this;
+        if (other.hasInt()) {
+          setInt(other.getInt());
         }
-        if (other.hasDelta()) {
-          setDelta(other.getDelta());
+        if (other.hasFloat()) {
+          setFloat(other.getFloat());
         }
-        if (other.hasTime()) {
-          bitField0_ |= 0x00000004;
-          time_ = other.time_;
+        if (other.hasLong()) {
+          setLong(other.getLong());
+        }
+        if (other.hasString()) {
+          bitField0_ |= 0x00000008;
+          String_ = other.String_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -479,15 +529,19 @@ public final class PacketProto {
       }
 
       public final boolean isInitialized() {
-        if (!hasGuid()) {
+        if (!hasInt()) {
           
           return false;
         }
-        if (!hasDelta()) {
+        if (!hasFloat()) {
           
           return false;
         }
-        if (!hasTime()) {
+        if (!hasLong()) {
+          
+          return false;
+        }
+        if (!hasString()) {
           
           return false;
         }
@@ -498,11 +552,11 @@ public final class PacketProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.alkaid.pearlharbor.net.PacketProto.hello parsedMessage = null;
+        com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.alkaid.pearlharbor.net.PacketProto.hello) e.getUnfinishedMessage();
+          parsedMessage = (com.alkaid.pearlharbor.net.PacketProto.CS_HelloWorld) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -513,209 +567,222 @@ public final class PacketProto {
       }
       private int bitField0_;
 
-      private int guid_ ;
+      private int Int_ ;
       /**
-       * <code>required int32 guid = 1;</code>
+       * <code>required int32 _int = 1;</code>
        */
-      public boolean hasGuid() {
+      public boolean hasInt() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 guid = 1;</code>
+       * <code>required int32 _int = 1;</code>
        */
-      public int getGuid() {
-        return guid_;
+      public int getInt() {
+        return Int_;
       }
       /**
-       * <code>required int32 guid = 1;</code>
+       * <code>required int32 _int = 1;</code>
        */
-      public Builder setGuid(int value) {
+      public Builder setInt(int value) {
         bitField0_ |= 0x00000001;
-        guid_ = value;
+        Int_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 guid = 1;</code>
+       * <code>required int32 _int = 1;</code>
        */
-      public Builder clearGuid() {
+      public Builder clearInt() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        guid_ = 0;
+        Int_ = 0;
         onChanged();
         return this;
       }
 
-      private float delta_ ;
+      private float Float_ ;
       /**
-       * <code>required float delta = 2;</code>
+       * <code>required float _float = 2;</code>
        */
-      public boolean hasDelta() {
+      public boolean hasFloat() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required float delta = 2;</code>
+       * <code>required float _float = 2;</code>
        */
-      public float getDelta() {
-        return delta_;
+      public float getFloat() {
+        return Float_;
       }
       /**
-       * <code>required float delta = 2;</code>
+       * <code>required float _float = 2;</code>
        */
-      public Builder setDelta(float value) {
+      public Builder setFloat(float value) {
         bitField0_ |= 0x00000002;
-        delta_ = value;
+        Float_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float delta = 2;</code>
+       * <code>required float _float = 2;</code>
        */
-      public Builder clearDelta() {
+      public Builder clearFloat() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        delta_ = 0F;
+        Float_ = 0F;
         onChanged();
         return this;
       }
 
-      private java.lang.Object time_ = "";
+      private long Long_ ;
       /**
-       * <code>required string time = 3;</code>
+       * <code>required int64 _long = 3;</code>
        */
-      public boolean hasTime() {
+      public boolean hasLong() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string time = 3;</code>
+       * <code>required int64 _long = 3;</code>
        */
-      public java.lang.String getTime() {
-        java.lang.Object ref = time_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            time_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getLong() {
+        return Long_;
       }
       /**
-       * <code>required string time = 3;</code>
+       * <code>required int64 _long = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getTimeBytes() {
-        java.lang.Object ref = time_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          time_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string time = 3;</code>
-       */
-      public Builder setTime(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        time_ = value;
+      public Builder setLong(long value) {
+        bitField0_ |= 0x00000004;
+        Long_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string time = 3;</code>
+       * <code>required int64 _long = 3;</code>
        */
-      public Builder clearTime() {
+      public Builder clearLong() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        time_ = getDefaultInstance().getTime();
+        Long_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object String_ = "";
+      /**
+       * <code>required string _string = 4;</code>
+       */
+      public boolean hasString() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string _string = 4;</code>
+       */
+      public java.lang.String getString() {
+        java.lang.Object ref = String_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            String_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string _string = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStringBytes() {
+        java.lang.Object ref = String_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          String_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string _string = 4;</code>
+       */
+      public Builder setString(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        String_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string time = 3;</code>
+       * <code>required string _string = 4;</code>
        */
-      public Builder setTimeBytes(
+      public Builder clearString() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        String_ = getDefaultInstance().getString();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string _string = 4;</code>
+       */
+      public Builder setStringBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-        time_ = value;
+  bitField0_ |= 0x00000008;
+        String_ = value;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:Packet.hello)
+      // @@protoc_insertion_point(builder_scope:Packet.CS_HelloWorld)
     }
 
     static {
-      defaultInstance = new hello(true);
+      defaultInstance = new CS_HelloWorld(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:Packet.hello)
+    // @@protoc_insertion_point(class_scope:Packet.CS_HelloWorld)
   }
 
-  public interface LoginOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Packet.Login)
+  public interface SC_HelloWorldResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Packet.SC_HelloWorldResult)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string name = 1;</code>
+     * <code>required int32 _resultCode = 1;</code>
      */
-    boolean hasName();
+    boolean hasResultCode();
     /**
-     * <code>required string name = 1;</code>
+     * <code>required int32 _resultCode = 1;</code>
      */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required string password = 2;</code>
-     */
-    boolean hasPassword();
-    /**
-     * <code>required string password = 2;</code>
-     */
-    java.lang.String getPassword();
-    /**
-     * <code>required string password = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
+    int getResultCode();
   }
   /**
-   * Protobuf type {@code Packet.Login}
+   * Protobuf type {@code Packet.SC_HelloWorldResult}
    */
-  public static final class Login extends
+  public static final class SC_HelloWorldResult extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:Packet.Login)
-      LoginOrBuilder {
-    // Use Login.newBuilder() to construct.
-    private Login(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:Packet.SC_HelloWorldResult)
+      SC_HelloWorldResultOrBuilder {
+    // Use SC_HelloWorldResult.newBuilder() to construct.
+    private SC_HelloWorldResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Login(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private SC_HelloWorldResult(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final Login defaultInstance;
-    public static Login getDefaultInstance() {
+    private static final SC_HelloWorldResult defaultInstance;
+    public static SC_HelloWorldResult getDefaultInstance() {
       return defaultInstance;
     }
 
-    public Login getDefaultInstanceForType() {
+    public SC_HelloWorldResult getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -725,7 +792,7 @@ public final class PacketProto {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private Login(
+    private SC_HelloWorldResult(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -748,16 +815,9 @@ public final class PacketProto {
               }
               break;
             }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 8: {
               bitField0_ |= 0x00000001;
-              name_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              password_ = bs;
+              ResultCode_ = input.readInt32();
               break;
             }
           }
@@ -774,119 +834,49 @@ public final class PacketProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Login_descriptor;
+      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_SC_HelloWorldResult_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Login_fieldAccessorTable
+      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_SC_HelloWorldResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.alkaid.pearlharbor.net.PacketProto.Login.class, com.alkaid.pearlharbor.net.PacketProto.Login.Builder.class);
+              com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.class, com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Login> PARSER =
-        new com.google.protobuf.AbstractParser<Login>() {
-      public Login parsePartialFrom(
+    public static com.google.protobuf.Parser<SC_HelloWorldResult> PARSER =
+        new com.google.protobuf.AbstractParser<SC_HelloWorldResult>() {
+      public SC_HelloWorldResult parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Login(input, extensionRegistry);
+        return new SC_HelloWorldResult(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Login> getParserForType() {
+    public com.google.protobuf.Parser<SC_HelloWorldResult> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private java.lang.Object name_;
+    public static final int _RESULTCODE_FIELD_NUMBER = 1;
+    private int ResultCode_;
     /**
-     * <code>required string name = 1;</code>
+     * <code>required int32 _resultCode = 1;</code>
      */
-    public boolean hasName() {
+    public boolean hasResultCode() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string name = 1;</code>
+     * <code>required int32 _resultCode = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    private java.lang.Object password_;
-    /**
-     * <code>required string password = 2;</code>
-     */
-    public boolean hasPassword() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string password = 2;</code>
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          password_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string password = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getResultCode() {
+      return ResultCode_;
     }
 
     private void initFields() {
-      name_ = "";
-      password_ = "";
+      ResultCode_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -894,11 +884,7 @@ public final class PacketProto {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasPassword()) {
+      if (!hasResultCode()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -910,10 +896,7 @@ public final class PacketProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getPasswordBytes());
+        output.writeInt32(1, ResultCode_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -926,11 +909,7 @@ public final class PacketProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getPasswordBytes());
+          .computeInt32Size(1, ResultCode_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -944,53 +923,53 @@ public final class PacketProto {
       return super.writeReplace();
     }
 
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(byte[] data)
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(java.io.InputStream input)
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseDelimitedFrom(java.io.InputStream input)
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseDelimitedFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.alkaid.pearlharbor.net.PacketProto.Login parseFrom(
+    public static com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -999,7 +978,7 @@ public final class PacketProto {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.alkaid.pearlharbor.net.PacketProto.Login prototype) {
+    public static Builder newBuilder(com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1011,25 +990,25 @@ public final class PacketProto {
       return builder;
     }
     /**
-     * Protobuf type {@code Packet.Login}
+     * Protobuf type {@code Packet.SC_HelloWorldResult}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Packet.Login)
-        com.alkaid.pearlharbor.net.PacketProto.LoginOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Packet.SC_HelloWorldResult)
+        com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Login_descriptor;
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_SC_HelloWorldResult_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Login_fieldAccessorTable
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_SC_HelloWorldResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.alkaid.pearlharbor.net.PacketProto.Login.class, com.alkaid.pearlharbor.net.PacketProto.Login.Builder.class);
+                com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.class, com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.Builder.class);
       }
 
-      // Construct using com.alkaid.pearlharbor.net.PacketProto.Login.newBuilder()
+      // Construct using com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1049,10 +1028,8 @@ public final class PacketProto {
 
       public Builder clear() {
         super.clear();
-        name_ = "";
+        ResultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        password_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1062,69 +1039,54 @@ public final class PacketProto {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Login_descriptor;
+        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_SC_HelloWorldResult_descriptor;
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.Login getDefaultInstanceForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.Login.getDefaultInstance();
+      public com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult getDefaultInstanceForType() {
+        return com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.getDefaultInstance();
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.Login build() {
-        com.alkaid.pearlharbor.net.PacketProto.Login result = buildPartial();
+      public com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult build() {
+        com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.alkaid.pearlharbor.net.PacketProto.Login buildPartial() {
-        com.alkaid.pearlharbor.net.PacketProto.Login result = new com.alkaid.pearlharbor.net.PacketProto.Login(this);
+      public com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult buildPartial() {
+        com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult result = new com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.password_ = password_;
+        result.ResultCode_ = ResultCode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.alkaid.pearlharbor.net.PacketProto.Login) {
-          return mergeFrom((com.alkaid.pearlharbor.net.PacketProto.Login)other);
+        if (other instanceof com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult) {
+          return mergeFrom((com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.alkaid.pearlharbor.net.PacketProto.Login other) {
-        if (other == com.alkaid.pearlharbor.net.PacketProto.Login.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
-        }
-        if (other.hasPassword()) {
-          bitField0_ |= 0x00000002;
-          password_ = other.password_;
-          onChanged();
+      public Builder mergeFrom(com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult other) {
+        if (other == com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult.getDefaultInstance()) return this;
+        if (other.hasResultCode()) {
+          setResultCode(other.getResultCode());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasName()) {
-          
-          return false;
-        }
-        if (!hasPassword()) {
+        if (!hasResultCode()) {
           
           return false;
         }
@@ -1135,11 +1097,11 @@ public final class PacketProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.alkaid.pearlharbor.net.PacketProto.Login parsedMessage = null;
+        com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.alkaid.pearlharbor.net.PacketProto.Login) e.getUnfinishedMessage();
+          parsedMessage = (com.alkaid.pearlharbor.net.PacketProto.SC_HelloWorldResult) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1150,833 +1112,59 @@ public final class PacketProto {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private int ResultCode_ ;
       /**
-       * <code>required string name = 1;</code>
+       * <code>required int32 _resultCode = 1;</code>
        */
-      public boolean hasName() {
+      public boolean hasResultCode() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required int32 _resultCode = 1;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getResultCode() {
+        return ResultCode_;
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required int32 _resultCode = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
+      public Builder setResultCode(int value) {
+        bitField0_ |= 0x00000001;
+        ResultCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required int32 _resultCode = 1;</code>
        */
-      public Builder clearName() {
+      public Builder clearResultCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
+        ResultCode_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object password_ = "";
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public boolean hasPassword() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            password_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public Builder setPassword(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        password_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public Builder clearPassword() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        password_ = getDefaultInstance().getPassword();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string password = 2;</code>
-       */
-      public Builder setPasswordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        password_ = value;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:Packet.Login)
+      // @@protoc_insertion_point(builder_scope:Packet.SC_HelloWorldResult)
     }
 
     static {
-      defaultInstance = new Login(true);
+      defaultInstance = new SC_HelloWorldResult(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:Packet.Login)
-  }
-
-  public interface LogoutOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Packet.Logout)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required string name = 1;</code>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required string time = 2;</code>
-     */
-    boolean hasTime();
-    /**
-     * <code>required string time = 2;</code>
-     */
-    java.lang.String getTime();
-    /**
-     * <code>required string time = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getTimeBytes();
-  }
-  /**
-   * Protobuf type {@code Packet.Logout}
-   */
-  public static final class Logout extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:Packet.Logout)
-      LogoutOrBuilder {
-    // Use Logout.newBuilder() to construct.
-    private Logout(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private Logout(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Logout defaultInstance;
-    public static Logout getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public Logout getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Logout(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              name_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              time_ = bs;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Logout_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Logout_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.alkaid.pearlharbor.net.PacketProto.Logout.class, com.alkaid.pearlharbor.net.PacketProto.Logout.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Logout> PARSER =
-        new com.google.protobuf.AbstractParser<Logout>() {
-      public Logout parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Logout(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Logout> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private java.lang.Object name_;
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TIME_FIELD_NUMBER = 2;
-    private java.lang.Object time_;
-    /**
-     * <code>required string time = 2;</code>
-     */
-    public boolean hasTime() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string time = 2;</code>
-     */
-    public java.lang.String getTime() {
-      java.lang.Object ref = time_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          time_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string time = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTimeBytes() {
-      java.lang.Object ref = time_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        time_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private void initFields() {
-      name_ = "";
-      time_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasTime()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getTimeBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getTimeBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.alkaid.pearlharbor.net.PacketProto.Logout parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.alkaid.pearlharbor.net.PacketProto.Logout prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Packet.Logout}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Packet.Logout)
-        com.alkaid.pearlharbor.net.PacketProto.LogoutOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Logout_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Logout_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.alkaid.pearlharbor.net.PacketProto.Logout.class, com.alkaid.pearlharbor.net.PacketProto.Logout.Builder.class);
-      }
-
-      // Construct using com.alkaid.pearlharbor.net.PacketProto.Logout.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        time_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.internal_static_Packet_Logout_descriptor;
-      }
-
-      public com.alkaid.pearlharbor.net.PacketProto.Logout getDefaultInstanceForType() {
-        return com.alkaid.pearlharbor.net.PacketProto.Logout.getDefaultInstance();
-      }
-
-      public com.alkaid.pearlharbor.net.PacketProto.Logout build() {
-        com.alkaid.pearlharbor.net.PacketProto.Logout result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.alkaid.pearlharbor.net.PacketProto.Logout buildPartial() {
-        com.alkaid.pearlharbor.net.PacketProto.Logout result = new com.alkaid.pearlharbor.net.PacketProto.Logout(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.time_ = time_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.alkaid.pearlharbor.net.PacketProto.Logout) {
-          return mergeFrom((com.alkaid.pearlharbor.net.PacketProto.Logout)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.alkaid.pearlharbor.net.PacketProto.Logout other) {
-        if (other == com.alkaid.pearlharbor.net.PacketProto.Logout.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
-        }
-        if (other.hasTime()) {
-          bitField0_ |= 0x00000002;
-          time_ = other.time_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasName()) {
-          
-          return false;
-        }
-        if (!hasTime()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.alkaid.pearlharbor.net.PacketProto.Logout parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.alkaid.pearlharbor.net.PacketProto.Logout) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object time_ = "";
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public boolean hasTime() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public java.lang.String getTime() {
-        java.lang.Object ref = time_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            time_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTimeBytes() {
-        java.lang.Object ref = time_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          time_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public Builder setTime(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        time_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        time_ = getDefaultInstance().getTime();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string time = 2;</code>
-       */
-      public Builder setTimeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        time_ = value;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:Packet.Logout)
-    }
-
-    static {
-      defaultInstance = new Logout(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:Packet.Logout)
+    // @@protoc_insertion_point(class_scope:Packet.SC_HelloWorldResult)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Packet_hello_descriptor;
+    internal_static_Packet_CS_HelloWorld_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Packet_hello_fieldAccessorTable;
+      internal_static_Packet_CS_HelloWorld_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Packet_Login_descriptor;
+    internal_static_Packet_SC_HelloWorldResult_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Packet_Login_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Packet_Logout_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Packet_Logout_fieldAccessorTable;
+      internal_static_Packet_SC_HelloWorldResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1986,11 +1174,11 @@ public final class PacketProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014Packet.proto\022\006Packet\"2\n\005hello\022\014\n\004guid\030" +
-      "\001 \002(\005\022\r\n\005delta\030\002 \002(\002\022\014\n\004time\030\003 \002(\t\"\'\n\005Lo" +
-      "gin\022\014\n\004name\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"$\n\006L" +
-      "ogout\022\014\n\004name\030\001 \002(\t\022\014\n\004time\030\002 \002(\tB)\n\032com" +
-      ".alkaid.pearlharbor.netB\013PacketProto"
+      "\n\014Packet.proto\022\006Packet\"M\n\rCS_HelloWorld\022" +
+      "\014\n\004_int\030\001 \002(\005\022\016\n\006_float\030\002 \002(\002\022\r\n\005_long\030\003" +
+      " \002(\003\022\017\n\007_string\030\004 \002(\t\"*\n\023SC_HelloWorldRe" +
+      "sult\022\023\n\013_resultCode\030\001 \002(\005B)\n\032com.alkaid." +
+      "pearlharbor.netB\013PacketProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2004,24 +1192,18 @@ public final class PacketProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_Packet_hello_descriptor =
+    internal_static_Packet_CS_HelloWorld_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_Packet_hello_fieldAccessorTable = new
+    internal_static_Packet_CS_HelloWorld_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Packet_hello_descriptor,
-        new java.lang.String[] { "Guid", "Delta", "Time", });
-    internal_static_Packet_Login_descriptor =
+        internal_static_Packet_CS_HelloWorld_descriptor,
+        new java.lang.String[] { "Int", "Float", "Long", "String", });
+    internal_static_Packet_SC_HelloWorldResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_Packet_Login_fieldAccessorTable = new
+    internal_static_Packet_SC_HelloWorldResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Packet_Login_descriptor,
-        new java.lang.String[] { "Name", "Password", });
-    internal_static_Packet_Logout_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_Packet_Logout_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Packet_Logout_descriptor,
-        new java.lang.String[] { "Name", "Time", });
+        internal_static_Packet_SC_HelloWorldResult_descriptor,
+        new java.lang.String[] { "ResultCode", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

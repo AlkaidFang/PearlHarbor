@@ -4,6 +4,6 @@ public interface IPacketHandler {
 	
 	int getType();
 	
-	boolean handle(Token token, Object data);
+	boolean handle(Token token, byte[] data);
 	
 }

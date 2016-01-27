@@ -1,19 +1,19 @@
 package com.alkaid.pearlharbor.net;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.Semaphore;
 
 import javax.websocket.RemoteEndpoint;
-import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.SendHandler;
 import javax.websocket.SendResult;
 
 import com.alkaid.pearlharbor.logger.LoggerSystem;
 import com.alkaid.pearlharbor.logger.LoggerSystem.LogType;
+import com.alkaid.pearlharbor.net.connection.IConnection;
 import com.alkaid.pearlharbor.playersystem.Player;
 import com.alkaid.pearlharbor.util.LifeCycle;
+import com.alkaid.pearlharbor.util.NetStream;
 import com.alkaid.pearlharbor.util.ServerConfig;
 
 public class Token implements LifeCycle{
@@ -26,7 +26,7 @@ public class Token implements LifeCycle{
 			Token.this.setCanSend(true);
 			if (arg0.isOK())
 			{
-				Token.this.finishedSend();
+				//Token.this.finishedSend();
 			}
 		}
 	}
@@ -34,6 +34,9 @@ public class Token implements LifeCycle{
 	private boolean bUsing = false;
 	
 	private RemoteEndpoint mRemoteEndpoint;
+	private IConnection mConnection;
+	private NetStream mNetStream;
+	private Queue<IPacket> mSendMessageQueue;
 	
 //	private Byte[] mReadBuffer;
 //	private int mReadBufferOffset;
@@ -45,7 +48,6 @@ public class Token implements LifeCycle{
 	
 	private Player mBindPlayer;
 	
-	private Queue<IPacket> mSendMessageQueue;
 	private boolean bCanSend = false;
 	private AsyncSendHandler mSendCallback;
 	
@@ -54,6 +56,8 @@ public class Token implements LifeCycle{
 	{
 		bUsing = false;
 		mRemoteEndpoint = null;
+		mConnection = null;
+		mNetStream = new NetStream(ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2);
 //		mReadBuffer = new Byte[ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2];
 //		mReadBufferOffset = 0;
 //		mWriteBuffer = new Byte[ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2];
@@ -86,17 +90,17 @@ public class Token implements LifeCycle{
 
 
 	@Override
-	public boolean destroy() {
+	public void destroy() {
 		// TODO Auto-generated method stub
 		
 		
-		return true;
 	}
 	
 	public void reset()
 	{
 		bUsing = false;
 		mRemoteEndpoint = null;
+		mConnection = null;
 		mBindPlayer = null;
 		
 		if (tempSemaphore != null)
@@ -119,6 +123,11 @@ public class Token implements LifeCycle{
 		bUsing = false;
 	}
 	
+	public boolean isUsing()
+	{
+		return bUsing;
+	}
+	
 	public void setEndpoint(RemoteEndpoint ep)
 	{
 		this.mRemoteEndpoint = ep;
@@ -129,18 +138,53 @@ public class Token implements LifeCycle{
 		return this.mRemoteEndpoint;
 	}
 	
+	public void setConnection(IConnection ic)
+	{
+		this.mConnection = ic;
+	}
+	
+	public IConnection getConnection()
+	{
+		return this.mConnection;
+	}
+	
+	public NetStream getNetStream()
+	{
+		return mNetStream;
+	}
+	
+	public void formatSendPacket(PacketFormat pf)
+	{
+		synchronized(mSendMessageQueue)
+		{
+			byte[] buffer = null;
+			for (IPacket packet : mSendMessageQueue)
+			{
+				pf.GenerateBuffer(buffer, packet);
+				
+				mNetStream.PushOutStream(buffer);
+			}
+			
+			mSendMessageQueue.clear();
+		}
+	}
+	
+	public void completeRead(byte[] data)
+	{
+		mNetStream.PushInStream(data);
+	}
+	
+	public void completeSend(int length)
+	{
+		mNetStream.FinishedOut(length);
+	}
+	
 	public void sendPacket(IPacket packet)
 	{
-		/// send packet, this send message will be send into an queue
-		String msg = packet.encode();
-//		try {
-//			((Basic) mRemoteEndpoint).sendText(msg);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		mSendMessageQueue.offer(packet);
+		synchronized(mSendMessageQueue)
+		{
+			mSendMessageQueue.offer(packet);
+		}
 	}
 	
 	public void bindPlayer(Player player)
@@ -166,33 +210,8 @@ public class Token implements LifeCycle{
 		return bCanSend;
 	}
 	
-	private void setCanSend(boolean arg)
+	public void setCanSend(boolean arg)
 	{
 		bCanSend = arg;
 	}
-	
-	private void finishedSend()
-	{
-		this.mSendMessageQueue.poll();
-	}
-	private void startSend(String message)
-	{
-		((RemoteEndpoint.Async)this.getRemoteEndpoint()).sendText(message, this.mSendCallback);
-		this.setCanSend(false);// 这个保证了每次只能发送一个包，必须等到有返回才会发送第二个
-	}
-	
-	public void checkAndSendPacket()
-	{
-		if (this.getCanSend())
-		{
-			if (!this.mSendMessageQueue.isEmpty())
-			{
-				IPacket packet = this.mSendMessageQueue.peek();
-				String msg = packet.encode();
-				System.out.println("Token checkAndSendPacket:" + msg);
-				startSend(msg);
-			}
-		}
-	}
-	
 }
