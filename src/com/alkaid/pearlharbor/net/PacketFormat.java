@@ -20,12 +20,12 @@ public class PacketFormat
     }
 
     // generate this packet to buffer
-    public void GenerateBuffer(byte[] dest, IPacket packet)
+    public byte[] GenerateBuffer(IPacket packet)
     {
         byte[] data = packet.getData();
         int iLength = GetLength(data.length);
 
-        dest = new byte[iLength];
+        byte[] dest = new byte[iLength];
 
         // head
         System.arraycopy(PACKET_HEAD, 0, dest, 0, 2);
@@ -41,6 +41,8 @@ public class PacketFormat
 
         // data
         System.arraycopy(data, 0, dest, 10, data.length);
+        
+        return dest;
     }
 
     //  check if have a full packet

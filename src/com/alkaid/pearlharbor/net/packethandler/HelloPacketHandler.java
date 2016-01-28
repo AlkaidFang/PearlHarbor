@@ -3,6 +3,7 @@ package com.alkaid.pearlharbor.net.packethandler;
 import com.alkaid.pearlharbor.net.IPacketHandler;
 import com.alkaid.pearlharbor.net.PacketProto;
 import com.alkaid.pearlharbor.net.PacketType;
+import com.alkaid.pearlharbor.net.SendPacket;
 import com.alkaid.pearlharbor.net.Token;
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -27,6 +28,11 @@ public class HelloPacketHandler implements IPacketHandler{
 		}
 		
 		if (hello == null) return false;
+		
+		PacketProto.SC_HelloWorldResult proto = PacketProto.SC_HelloWorldResult.newBuilder().setResultCode(888).build();
+		SendPacket packet = new SendPacket(PacketType._Type_HelloWorldResult);
+		packet.setProto(proto);
+		token.sendPacket(packet);
 		
 		System.out.println("LoginPacketHandler ,  int:" + hello.getInt() + " long:" + hello.getLong());
 		

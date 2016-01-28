@@ -160,7 +160,7 @@ public class Token implements LifeCycle{
 			byte[] buffer = null;
 			for (IPacket packet : mSendMessageQueue)
 			{
-				pf.GenerateBuffer(buffer, packet);
+				buffer = pf.GenerateBuffer(packet);
 				
 				mNetStream.PushOutStream(buffer);
 			}

@@ -79,9 +79,10 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 		// TODO Auto-generated method stub
 		
 		mPacketFormat = new PacketFormat();
-		mSendThread = new AsyncThread(this);
 		mAsyncSendHandlerMap = new ConcurrentHashMap<String, AsyncSendHandler>();
 		
+		mSendThread = new AsyncThread(this);
+		mSendThread.Start();
 		return true;
 	}
 
