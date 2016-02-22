@@ -57,7 +57,7 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 	private AsyncThread mSendThread = null;
 	private ConcurrentHashMap<String, AsyncSendHandler> mAsyncSendHandlerMap;
 
-	private volatile static WebSocketConnectionManager instance = null;
+	/*private volatile static WebSocketConnectionManager instance = null;
 	public static WebSocketConnectionManager getInstance()
 	{
 		if (null == instance)
@@ -72,7 +72,7 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 		}
 		
 		return instance;
-	}
+	}*/
 
 	@Override
 	public boolean init() {
@@ -136,7 +136,7 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 		Session session = (Session)connection;
 		if (session != null)
 		{
-			IConnection ic = new WebSocketConnection();
+			IConnection ic = new IConnection();
 			ic.setReal(session.getAsyncRemote());
 			ic.setCid(session.getId());
 			NetSystem.getInstance().bindConnection(ic);
@@ -177,6 +177,12 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 			token.completeRead(data);
 			LoggerSystem.info(LogType.DEFAULT, "received data : " + session.getId() + "   data:" + data);
 		}
+	}
+	
+	@Override
+	public void OnReceivedData(Object connection, byte[] data, int length) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	private void processDecode()
@@ -288,7 +294,6 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 		// TODO Auto-generated method stub
 		
 	}
-
 }
 
 

@@ -18,19 +18,6 @@ import com.alkaid.pearlharbor.util.ServerConfig;
 
 public class Token implements LifeCycle{
 	
-	private class AsyncSendHandler implements SendHandler
-	{
-		@Override
-		public void onResult(SendResult arg0) {
-			// TODO Auto-generated method stub
-			Token.this.setCanSend(true);
-			if (arg0.isOK())
-			{
-				//Token.this.finishedSend();
-			}
-		}
-	}
-	
 	private boolean bUsing = false;
 	
 	private RemoteEndpoint mRemoteEndpoint;
@@ -49,7 +36,6 @@ public class Token implements LifeCycle{
 	private Player mBindPlayer;
 	
 	private boolean bCanSend = false;
-	private AsyncSendHandler mSendCallback;
 	
 	// function
 	public Token()
@@ -57,7 +43,7 @@ public class Token implements LifeCycle{
 		bUsing = false;
 		mRemoteEndpoint = null;
 		mConnection = null;
-		mNetStream = new NetStream(ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2);
+		mNetStream = new NetStream(ServerConfig.MAX_SOCKET_BUFFER_SIZE * 2);
 //		mReadBuffer = new Byte[ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2];
 //		mReadBufferOffset = 0;
 //		mWriteBuffer = new Byte[ServerConfig.MAX_WEBSOCKET_BUFFER_SIZE * 2];
@@ -68,7 +54,6 @@ public class Token implements LifeCycle{
 		mBindPlayer = null;
 		
 		mSendMessageQueue = new LinkedList<IPacket>();
-		mSendCallback = new AsyncSendHandler();
 	}
 
 
@@ -172,6 +157,11 @@ public class Token implements LifeCycle{
 	public void completeRead(byte[] data)
 	{
 		mNetStream.PushInStream(data);
+	}
+	
+	public void completeRead(byte[] data, int length)
+	{
+		mNetStream.PushInStream(data, length);
 	}
 	
 	public void completeSend(int length)

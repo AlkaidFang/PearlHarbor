@@ -77,6 +77,11 @@ public class NetStream
     {
         mReadBuffer.Push(buffer);
     }
+    
+    public void PushInStream(byte[] buffer, int length)
+    {
+    	mReadBuffer.Push(buffer, length);
+    }
 
     public void PopInStream(int length)
     {

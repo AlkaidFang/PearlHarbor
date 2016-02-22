@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.websocket.Session;
-import javax.websocket.RemoteEndpoint;
-
-import com.alkaid.pearlharbor.game.Game;
 import com.alkaid.pearlharbor.logger.LoggerSystem;
 import com.alkaid.pearlharbor.logger.LoggerSystem.LogType;
 import com.alkaid.pearlharbor.net.connection.ConnectionType;
 import com.alkaid.pearlharbor.net.connection.IConnection;
 import com.alkaid.pearlharbor.net.connection.IConnectionManager;
+import com.alkaid.pearlharbor.net.connection.TCPConnectionManager_mina;
+import com.alkaid.pearlharbor.net.connection.TCPConnectionManager_nio;
 import com.alkaid.pearlharbor.net.connection.WebSocketConnectionManager;
 import com.alkaid.pearlharbor.util.LifeCycle;
 import com.alkaid.pearlharbor.util.ServerConfig;
@@ -62,7 +60,7 @@ public class NetSystem implements LifeCycle{
 		
 		mPacketHandlerManager.init();
 		
-		setConnection(ConnectionType.WEBSOCKET);
+		setConnection(ConnectionType.TCP_mina);
 		mConnectionManager.init();
 		
 		return true;
@@ -101,7 +99,8 @@ public class NetSystem implements LifeCycle{
 	{
 		switch(type)
 		{
-			case TCP: break;
+			case TCP_nio: mConnectionManager = new TCPConnectionManager_nio(); break;
+			case TCP_mina: mConnectionManager = new TCPConnectionManager_mina(); break;
 			case WEBSOCKET: mConnectionManager = new WebSocketConnectionManager(); break;
 			default: break;
 		}

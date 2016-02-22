@@ -21,4 +21,7 @@ public interface IConnectionManager extends LifeCycle {
 	void onEnd(Object connection);
 	
 	void onReceivedData(Object connection, byte[] data);
+	
+	void OnReceivedData(Object connection, byte[] data, int length);
+	
 }
