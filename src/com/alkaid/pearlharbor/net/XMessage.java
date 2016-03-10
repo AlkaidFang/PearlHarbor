@@ -3360,6 +3360,1096 @@ public final class XMessage {
 
   }
 
+  public interface CS_LoginOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:XMessage.CS_Login)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string account = 1;</code>
+     */
+    java.lang.String getAccount();
+    /**
+     * <code>optional string account = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountBytes();
+
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <code>optional string uguid = 3;</code>
+     */
+    java.lang.String getUguid();
+    /**
+     * <code>optional string uguid = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUguidBytes();
+  }
+  /**
+   * Protobuf type {@code XMessage.CS_Login}
+   */
+  public  static final class CS_Login extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:XMessage.CS_Login)
+      CS_LoginOrBuilder {
+    // Use CS_Login.newBuilder() to construct.
+    private CS_Login(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private CS_Login() {
+      account_ = "";
+      password_ = "";
+      uguid_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private CS_Login(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              account_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uguid_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_CS_Login_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_CS_Login_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.alkaid.pearlharbor.net.XMessage.CS_Login.class, com.alkaid.pearlharbor.net.XMessage.CS_Login.Builder.class);
+    }
+
+    public static final int ACCOUNT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object account_;
+    /**
+     * <code>optional string account = 1;</code>
+     */
+    public java.lang.String getAccount() {
+      java.lang.Object ref = account_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        account_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string account = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountBytes() {
+      java.lang.Object ref = account_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        account_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int UGUID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object uguid_;
+    /**
+     * <code>optional string uguid = 3;</code>
+     */
+    public java.lang.String getUguid() {
+      java.lang.Object ref = uguid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uguid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string uguid = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUguidBytes() {
+      java.lang.Object ref = uguid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uguid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getAccountBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, account_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, password_);
+      }
+      if (!getUguidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, uguid_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getAccountBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, account_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, password_);
+      }
+      if (!getUguidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, uguid_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.alkaid.pearlharbor.net.XMessage.CS_Login prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code XMessage.CS_Login}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:XMessage.CS_Login)
+        com.alkaid.pearlharbor.net.XMessage.CS_LoginOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_CS_Login_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_CS_Login_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.alkaid.pearlharbor.net.XMessage.CS_Login.class, com.alkaid.pearlharbor.net.XMessage.CS_Login.Builder.class);
+      }
+
+      // Construct using com.alkaid.pearlharbor.net.XMessage.CS_Login.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        account_ = "";
+
+        password_ = "";
+
+        uguid_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_CS_Login_descriptor;
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.CS_Login getDefaultInstanceForType() {
+        return com.alkaid.pearlharbor.net.XMessage.CS_Login.getDefaultInstance();
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.CS_Login build() {
+        com.alkaid.pearlharbor.net.XMessage.CS_Login result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.CS_Login buildPartial() {
+        com.alkaid.pearlharbor.net.XMessage.CS_Login result = new com.alkaid.pearlharbor.net.XMessage.CS_Login(this);
+        result.account_ = account_;
+        result.password_ = password_;
+        result.uguid_ = uguid_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.alkaid.pearlharbor.net.XMessage.CS_Login) {
+          return mergeFrom((com.alkaid.pearlharbor.net.XMessage.CS_Login)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.alkaid.pearlharbor.net.XMessage.CS_Login other) {
+        if (other == com.alkaid.pearlharbor.net.XMessage.CS_Login.getDefaultInstance()) return this;
+        if (!other.getAccount().isEmpty()) {
+          account_ = other.account_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        if (!other.getUguid().isEmpty()) {
+          uguid_ = other.uguid_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.alkaid.pearlharbor.net.XMessage.CS_Login parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.alkaid.pearlharbor.net.XMessage.CS_Login) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object account_ = "";
+      /**
+       * <code>optional string account = 1;</code>
+       */
+      public java.lang.String getAccount() {
+        java.lang.Object ref = account_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          account_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string account = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountBytes() {
+        java.lang.Object ref = account_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          account_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string account = 1;</code>
+       */
+      public Builder setAccount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        account_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string account = 1;</code>
+       */
+      public Builder clearAccount() {
+        
+        account_ = getDefaultInstance().getAccount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string account = 1;</code>
+       */
+      public Builder setAccountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        account_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object uguid_ = "";
+      /**
+       * <code>optional string uguid = 3;</code>
+       */
+      public java.lang.String getUguid() {
+        java.lang.Object ref = uguid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uguid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string uguid = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUguidBytes() {
+        java.lang.Object ref = uguid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uguid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string uguid = 3;</code>
+       */
+      public Builder setUguid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uguid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uguid = 3;</code>
+       */
+      public Builder clearUguid() {
+        
+        uguid_ = getDefaultInstance().getUguid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uguid = 3;</code>
+       */
+      public Builder setUguidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uguid_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:XMessage.CS_Login)
+    }
+
+    // @@protoc_insertion_point(class_scope:XMessage.CS_Login)
+    private static final com.alkaid.pearlharbor.net.XMessage.CS_Login DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.alkaid.pearlharbor.net.XMessage.CS_Login();
+    }
+
+    public static com.alkaid.pearlharbor.net.XMessage.CS_Login getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CS_Login>
+        PARSER = new com.google.protobuf.AbstractParser<CS_Login>() {
+      public CS_Login parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new CS_Login(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<CS_Login> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CS_Login> getParserForType() {
+      return PARSER;
+    }
+
+    public com.alkaid.pearlharbor.net.XMessage.CS_Login getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SC_LoginResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:XMessage.SC_LoginResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bool resultcode = 1;</code>
+     */
+    boolean getResultcode();
+  }
+  /**
+   * Protobuf type {@code XMessage.SC_LoginResult}
+   */
+  public  static final class SC_LoginResult extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:XMessage.SC_LoginResult)
+      SC_LoginResultOrBuilder {
+    // Use SC_LoginResult.newBuilder() to construct.
+    private SC_LoginResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private SC_LoginResult() {
+      resultcode_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private SC_LoginResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              resultcode_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_SC_LoginResult_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_SC_LoginResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.class, com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.Builder.class);
+    }
+
+    public static final int RESULTCODE_FIELD_NUMBER = 1;
+    private boolean resultcode_;
+    /**
+     * <code>optional bool resultcode = 1;</code>
+     */
+    public boolean getResultcode() {
+      return resultcode_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (resultcode_ != false) {
+        output.writeBool(1, resultcode_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (resultcode_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, resultcode_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.alkaid.pearlharbor.net.XMessage.SC_LoginResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code XMessage.SC_LoginResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:XMessage.SC_LoginResult)
+        com.alkaid.pearlharbor.net.XMessage.SC_LoginResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_SC_LoginResult_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_SC_LoginResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.class, com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.Builder.class);
+      }
+
+      // Construct using com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        resultcode_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.alkaid.pearlharbor.net.XMessage.internal_static_XMessage_SC_LoginResult_descriptor;
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.SC_LoginResult getDefaultInstanceForType() {
+        return com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.getDefaultInstance();
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.SC_LoginResult build() {
+        com.alkaid.pearlharbor.net.XMessage.SC_LoginResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.alkaid.pearlharbor.net.XMessage.SC_LoginResult buildPartial() {
+        com.alkaid.pearlharbor.net.XMessage.SC_LoginResult result = new com.alkaid.pearlharbor.net.XMessage.SC_LoginResult(this);
+        result.resultcode_ = resultcode_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.alkaid.pearlharbor.net.XMessage.SC_LoginResult) {
+          return mergeFrom((com.alkaid.pearlharbor.net.XMessage.SC_LoginResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.alkaid.pearlharbor.net.XMessage.SC_LoginResult other) {
+        if (other == com.alkaid.pearlharbor.net.XMessage.SC_LoginResult.getDefaultInstance()) return this;
+        if (other.getResultcode() != false) {
+          setResultcode(other.getResultcode());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.alkaid.pearlharbor.net.XMessage.SC_LoginResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.alkaid.pearlharbor.net.XMessage.SC_LoginResult) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean resultcode_ ;
+      /**
+       * <code>optional bool resultcode = 1;</code>
+       */
+      public boolean getResultcode() {
+        return resultcode_;
+      }
+      /**
+       * <code>optional bool resultcode = 1;</code>
+       */
+      public Builder setResultcode(boolean value) {
+        
+        resultcode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool resultcode = 1;</code>
+       */
+      public Builder clearResultcode() {
+        
+        resultcode_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:XMessage.SC_LoginResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:XMessage.SC_LoginResult)
+    private static final com.alkaid.pearlharbor.net.XMessage.SC_LoginResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.alkaid.pearlharbor.net.XMessage.SC_LoginResult();
+    }
+
+    public static com.alkaid.pearlharbor.net.XMessage.SC_LoginResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SC_LoginResult>
+        PARSER = new com.google.protobuf.AbstractParser<SC_LoginResult>() {
+      public SC_LoginResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new SC_LoginResult(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<SC_LoginResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SC_LoginResult> getParserForType() {
+      return PARSER;
+    }
+
+    public com.alkaid.pearlharbor.net.XMessage.SC_LoginResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_XMessage_Person_descriptor;
   private static
@@ -3385,6 +4475,16 @@ public final class XMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_XMessage_SC_HelloWorldResult_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_XMessage_CS_Login_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_XMessage_CS_Login_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_XMessage_SC_LoginResult_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_XMessage_SC_LoginResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3404,8 +4504,11 @@ public final class XMessage {
       "sage.Person\"M\n\rCS_HelloWorld\022\014\n\004_int\030\001 \001" +
       "(\005\022\016\n\006_float\030\002 \001(\002\022\r\n\005_long\030\003 \001(\003\022\017\n\007_st" +
       "ring\030\004 \001(\t\"*\n\023SC_HelloWorldResult\022\023\n\013_re",
-      "sultCode\030\001 \001(\005B&\n\032com.alkaid.pearlharbor" +
-      ".netB\010XMessageb\006proto3"
+      "sultCode\030\001 \001(\005\"<\n\010CS_Login\022\017\n\007account\030\001 " +
+      "\001(\t\022\020\n\010password\030\002 \001(\t\022\r\n\005uguid\030\003 \001(\t\"$\n\016" +
+      "SC_LoginResult\022\022\n\nresultcode\030\001 \001(\010B&\n\032co" +
+      "m.alkaid.pearlharbor.netB\010XMessageb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3449,6 +4552,18 @@ public final class XMessage {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_XMessage_SC_HelloWorldResult_descriptor,
         new java.lang.String[] { "ResultCode", });
+    internal_static_XMessage_CS_Login_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_XMessage_CS_Login_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_XMessage_CS_Login_descriptor,
+        new java.lang.String[] { "Account", "Password", "Uguid", });
+    internal_static_XMessage_SC_LoginResult_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_XMessage_SC_LoginResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_XMessage_SC_LoginResult_descriptor,
+        new java.lang.String[] { "Resultcode", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

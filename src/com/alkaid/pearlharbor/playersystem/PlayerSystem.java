@@ -2,6 +2,8 @@ package com.alkaid.pearlharbor.playersystem;
 
 import java.util.HashMap;
 
+import com.alkaid.pearlharbor.dbsystem.DBSystem;
+import com.alkaid.pearlharbor.game.Game;
 import com.alkaid.pearlharbor.util.LifeCycle;
 import com.alkaid.pearlharbor.util.ServerConfig;
 
@@ -64,12 +66,12 @@ public class PlayerSystem implements LifeCycle{
 		
 	}
 	
-	public Player getNewPlayer()
+	private Player getNewPlayer()
 	{
 		return mPlayerPool.retain();
 	}
 	
-	public void releasePlayer(Player arg)
+	private void releasePlayer(Player arg)
 	{
 		mPlayerPool.release(arg);
 	}
@@ -95,4 +97,64 @@ public class PlayerSystem implements LifeCycle{
 			}
 		}
 	}
+	
+	/**
+	 * @author fangjun
+	 * @description login home, and havenot declar the avatar message
+	 * @date 2016年3月8日
+	 */
+	public Player onLoginHome(String account)
+	{
+		// check if online
+		Player player = mActivePlayer.get(account);
+		if (null != player)
+		{
+			return player;
+		}
+		
+		// not online
+		player = getNewPlayer();
+		player.mPlayerData.mHomeData.mAccount = account;
+		
+		// load storage
+		if (!DBSystem.getInstance().loadPlayerHomeData(player))
+		{
+			// the db donot contain this player data, so this is a new user.
+			player.mPlayerData.mHomeData.newPlayer();
+			// save this data
+			DBSystem.getInstance().savePlayerHomeData(player);
+		}
+		
+		// active this data
+		player.Using();
+		mActivePlayer.put(player.mPlayerData.mHomeData.mAccount, player);		
+		
+		return player;
+	}
+	
+	/**
+	 * 
+	 * @author fangjun
+	 * @description enter the game world, so load the avatar data
+	 * @date 2016年3月8日
+	 */
+	public void onLoginGame(Player player)
+	{
+		if (null == player) return;
+		
+		String guid = player.mPlayerData.mAvatarData.mAvatarGuid;
+		
+		if (!DBSystem.getInstance().loadPlayerAvatarData(player))
+		{
+			// db donot contain this avatar, to make new one;
+			int avatarindex = DBSystem.getInstance().getNewAvatarIndex();
+			guid = String.format(AvatarData.S_AvatarGuidFormat, Game.getInstance().getId(), avatarindex);
+			player.mPlayerData.mAvatarData.newPlayer();
+			player.mPlayerData.mAvatarData.mAvatarGuid = guid;
+			player.mPlayerData.mHomeData.mAvatarGuids.add(guid);
+			
+			DBSystem.getInstance().savePlayerAllInfo(player);
+		}
+	}
+	
 }

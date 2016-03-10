@@ -165,4 +165,9 @@ public class Game implements LifeCycle{
 	{
 		this.mResPath = respath;
 	}
+	
+	public int getId()
+	{
+		return ServerConfig.SERVER_ID;
+	}
 }

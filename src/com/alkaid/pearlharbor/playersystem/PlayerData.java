@@ -5,23 +5,23 @@ public class PlayerData {
 	public String mGuid;
 	
     // 家园数据
-    //public HomeData mHomeData;
+    public HomeData mHomeData;
 
     // 精灵数据
-    //public AvatarData mAvatarData;
+    public AvatarData mAvatarData;
 
 
     public PlayerData()
     {
-        //mHomeData = new HomeData();
+        mHomeData = new HomeData();
 
-        //mAvatarData = new AvatarData();
+        mAvatarData = new AvatarData();
     }
 
-    public void Reset()
+    public void reset()
     {
-        //mHomeData.Reset();
+        mHomeData.reset();
 
-        //mAvatarData.Reset();
+        mAvatarData.reset();
     }
 }

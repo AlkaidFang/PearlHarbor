@@ -11,6 +11,7 @@ public class LoggerSystem implements LifeCycle{
 	public enum LogType
 	{
 		DEFAULT,
+		DB,
 		LOGIN,
 		CREATEROLE,
 		_MAX_,

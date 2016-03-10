@@ -1,10 +1,10 @@
 package com.alkaid.pearlharbor.net.packethandler;
 
 import com.alkaid.pearlharbor.net.IPacketHandler;
-import com.alkaid.pearlharbor.net.PacketProto;
 import com.alkaid.pearlharbor.net.PacketType;
 import com.alkaid.pearlharbor.net.SendPacket;
 import com.alkaid.pearlharbor.net.Token;
+import com.alkaid.pearlharbor.net.XMessage;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 public class HelloPacketHandler implements IPacketHandler{
@@ -19,9 +19,9 @@ public class HelloPacketHandler implements IPacketHandler{
 	public boolean handle(Token token, byte[] data) {
 		// TODO Auto-generated method stub
 		byte[] b = (byte[])data;
-		PacketProto.CS_HelloWorld hello = null;
+		XMessage.CS_HelloWorld hello = null;
 		try {
-			hello = PacketProto.CS_HelloWorld.parseFrom(b);
+			hello = XMessage.CS_HelloWorld.parseFrom(b);
 		} catch (InvalidProtocolBufferException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,7 +29,7 @@ public class HelloPacketHandler implements IPacketHandler{
 		
 		if (hello == null) return false;
 		
-		PacketProto.SC_HelloWorldResult proto = PacketProto.SC_HelloWorldResult.newBuilder().setResultCode(888).build();
+		XMessage.SC_HelloWorldResult proto = XMessage.SC_HelloWorldResult.newBuilder().setResultCode(888).build();
 		SendPacket packet = new SendPacket(PacketType._Type_HelloWorldResult);
 		packet.setProto(proto);
 		token.sendPacket(packet);

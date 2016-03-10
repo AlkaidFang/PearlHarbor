@@ -39,3 +39,18 @@ message SC_HelloWorldResult
 {
 	int32 _resultCode = 1;
 }
+
+message CS_Login
+{
+	string account = 1;
+	string password = 2;
+	string uguid = 3;
+}
+
+message SC_LoginResult
+{
+	bool resultcode = 1;
+	
+}
+
+

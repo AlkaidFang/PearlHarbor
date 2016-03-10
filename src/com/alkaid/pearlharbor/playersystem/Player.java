@@ -21,7 +21,7 @@ public class Player  implements LifeCycle{
 			
 		}
 		
-		mPlayerData.Reset();
+		mPlayerData.reset();
 		
 		UnUsed();
 	}
