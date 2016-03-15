@@ -43,16 +43,6 @@ public class StartServlet extends HttpServlet{
 	}
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-		// server close will call
-		Game.getInstance().stopServer();
-
-		super.destroy();
-	}
-
-	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();

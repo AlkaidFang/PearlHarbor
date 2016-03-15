@@ -1,6 +1,7 @@
 package com.alkaid.pearlharbor.game;
 
 import com.alkaid.pearlharbor.dataprovidersystem.DataProviderSystem;
+import com.alkaid.pearlharbor.dbsystem.DBSystem;
 import com.alkaid.pearlharbor.logger.LoggerSystem;
 import com.alkaid.pearlharbor.logger.LoggerSystem.LogType;
 import com.alkaid.pearlharbor.net.NetSystem;
@@ -110,8 +111,8 @@ public class Game implements LifeCycle{
 				break;
 			
 			// dbsystem
-//			if (DBSystem.getInstance().init() == false)
-//				break;
+			if (DBSystem.getInstance().init() == false)
+				break;
 
 			
 			return true;
@@ -133,19 +134,26 @@ public class Game implements LifeCycle{
 		PlayerSystem.getInstance().tick();
 		
 		NetSystem.getInstance().tick();
+		
+		DBSystem.getInstance().tick();
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
+		LoggerSystem.info(LogType.DEFAULT, "server destroy start!");
 		
-		LoggerSystem.getInstance().tick();
+		LoggerSystem.getInstance().destroy();
 		
-		DataProviderSystem.getInstance().tick();
+		DataProviderSystem.getInstance().destroy();
 		
-		PlayerSystem.getInstance().tick();
+		PlayerSystem.getInstance().destroy();
 		
-		NetSystem.getInstance().tick();
+		NetSystem.getInstance().destroy();
+		
+		DBSystem.getInstance().destroy();
+
+		LoggerSystem.info(LogType.DEFAULT, "server destroy end!");
 	}
 
 	public String getLogPropertiesPath() {

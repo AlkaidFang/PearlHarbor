@@ -21,6 +21,15 @@
   	<url-pattern>/StartServer</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>StopServlet</servlet-name>
+  	<servlet-class>com.alkaid.pearlharbor.net.servlet.StopServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StopServlet</servlet-name>
+  	<url-pattern>/Stop</url-pattern>
+  </servlet-mapping>
+  
   <context-param>
   	<param-name>log4jConfigLocation</param-name>
   	<param-value>WEB-INF/log4j.properties</param-value>

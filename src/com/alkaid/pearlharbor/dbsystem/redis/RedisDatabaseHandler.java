@@ -1,6 +1,5 @@
 package com.alkaid.pearlharbor.dbsystem.redis;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,16 +40,13 @@ public class RedisDatabaseHandler implements IDatabaseHandler{
 		
 		try
 		{
-			Transaction tran = db.multi();
-			if (!db.exists("GLOBAL:GUID_BEGIN_INDEX"))
+			if (!db.exists("GLOBAL:GUID_BEGIN_INDEX") && !db.exists("GLOBAL:GUID_END_INDEX"))
 			{
+				Transaction tran = db.multi();
 				tran.set("GLOBAL:GUID_BEGIN_INDEX", 10000 + "");
-			}
-			if (!db.exists("GLOBAL:GUID_END_INDEX"))
-			{
 				tran.set("GLOBAL:GUID_END_INDEX", Integer.MAX_VALUE + "");
+				tran.exec();
 			}
-			tran.exec();
 		}
 		catch(Exception e)
 		{
