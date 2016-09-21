@@ -1,6 +1,7 @@
 package com.alkaid.pearlharbor.net.connection;
 
 import java.io.EOFException;
+import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.List;
@@ -92,6 +93,10 @@ public class TCPConnectionManager_mina implements IConnectionManager, ThreadCall
 			IConnection ic = new IConnection();
 			ic.setCid(session.getId() + "");
 			ic.setReal(connection);
+			// 获取客户端的网络地址
+			String clientIp = ((InetSocketAddress)session.getRemoteAddress()).getAddress().getHostAddress();
+			int clientPort = ((InetSocketAddress)session.getRemoteAddress()).getPort();
+			ic.setRemoteIpPort(clientIp, clientPort);
 			NetSystem.getInstance().bindConnection(ic);
 			++ mConnectionNum;
 		}
@@ -140,8 +145,10 @@ public class TCPConnectionManager_mina implements IConnectionManager, ThreadCall
 	{
 		List<String> activeTokenKeys = NetSystem.getInstance().getActiveTokenKeys();
 		Token token = null;
-		for (String key : activeTokenKeys)
+		String key = null;
+		for (int i = 0; i < activeTokenKeys.size(); ++i)
 		{
+			key = activeTokenKeys.get(i);
 			token = NetSystem.getInstance().getTokenByConnection(key);
 			if (token == null || !token.isUsing())
 			{
@@ -164,14 +171,17 @@ public class TCPConnectionManager_mina implements IConnectionManager, ThreadCall
 			}
 			
 		}
+
 	}
 	
 	private void processSend()
 	{
 		List<String> activeTokenKeys = NetSystem.getInstance().getActiveTokenKeys();
 		Token token = null;
-		for (String key : activeTokenKeys)
+		String key = null;
+		for (int i = 0; i < activeTokenKeys.size(); ++i)
 		{
+			key = activeTokenKeys.get(i);
 			token = NetSystem.getInstance().getTokenByConnection(key);
 			if (token == null || !token.isUsing())
 			{
@@ -201,6 +211,7 @@ public class TCPConnectionManager_mina implements IConnectionManager, ThreadCall
 				}
 			}
 		}
+
 	}
 
 	@Override

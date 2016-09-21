@@ -3,6 +3,7 @@ package com.alkaid.pearlharbor.net;
 import java.util.HashMap;
 import com.alkaid.pearlharbor.net.packethandler.HelloPacketHandler;
 import com.alkaid.pearlharbor.net.packethandler.LoginPacketHandler;
+import com.alkaid.pearlharbor.net.packethandler.PingPacketHandler;
 import com.alkaid.pearlharbor.util.LifeCycle;
 
 public class PacketHandlerManager implements LifeCycle{
@@ -20,6 +21,7 @@ public class PacketHandlerManager implements LifeCycle{
 		// TODO Auto-generated method stub
 		registerHandler(new HelloPacketHandler());
 		registerHandler(new LoginPacketHandler());
+		registerHandler(new PingPacketHandler());
 		
 		
 		return true;

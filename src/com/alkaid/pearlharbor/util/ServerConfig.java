@@ -12,9 +12,12 @@ public class ServerConfig {
 	
 	//net config
 	public final static int MAX_SOCKET_BUFFER_SIZE = 4096;
-	public final static String NET_TCP_IP = "10.12.25.205";
-	public final static int NET_TCP_PORT = 10086;
+	public final static String NET_TCP_IP = "172.31.1.142";
+	public final static int NET_TCP_PORT = 33333; 
+	// p2p hole masker config
+	public final static int NET_TCP_PORT_P2P = 33334;
 	// db config
+	public final static boolean DB_SERVER_ACTIVE = false;
 	public final static String DB_SERVER_IP = "127.0.0.1";
 	public final static int DB_SERVER_PORT = 6379;
 }

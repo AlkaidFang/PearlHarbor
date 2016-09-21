@@ -2,7 +2,10 @@ package com.alkaid.pearlharbor.net;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import com.alkaid.pearlharbor.logger.LoggerSystem;
 import com.alkaid.pearlharbor.logger.LoggerSystem.LogType;
@@ -60,7 +63,7 @@ public class NetSystem implements LifeCycle{
 		
 		mPacketHandlerManager.init();
 		
-		setConnection(ConnectionType.TCP_mina);
+		setConnectionType(ConnectionType.TCP_mina);
 		mConnectionManager.init();
 		
 		return true;
@@ -71,6 +74,13 @@ public class NetSystem implements LifeCycle{
 		// TODO Auto-generated method stub
 		
 		// Token tick
+		/*Iterator<Entry<String, Token>> it = mActiveTokenMap.entrySet().iterator();
+		Map.Entry<String, Token> entry = null;
+		while(it.hasNext())
+		{
+			entry = (Entry<String, Token>) it.next();
+			((Token)entry.getValue()).tick();
+		}*/
 		synchronized(mActiveTokenMap)
 		{
 			for (Token t : mActiveTokenMap.values())
@@ -95,7 +105,7 @@ public class NetSystem implements LifeCycle{
 		mConnectionManager.destroy();
 	}
 	
-	public void setConnection(ConnectionType type)
+	public void setConnectionType(ConnectionType type)
 	{
 		switch(type)
 		{
@@ -116,7 +126,7 @@ public class NetSystem implements LifeCycle{
 		return mConnectionManager;
 	}
 	
-	public List<String> getActiveTokenKeys()
+	public synchronized List<String> getActiveTokenKeys()
 	{
 		if (mActiveTokenMapChanged)
 		{
@@ -132,21 +142,24 @@ public class NetSystem implements LifeCycle{
 		return mActiveTokenKeys;
 	}
 	
-	public void bindConnection(IConnection connection)
+	public synchronized void bindConnection(IConnection connection)
 	{
 		Token token = mTokenPool.retain();
 		if (token != null)
 		{
 			token.setConnection(connection);
 			token.using();
-			mActiveTokenMap.put(connection.getCid(), token);
+			synchronized(mActiveTokenMap)
+			{
+				mActiveTokenMap.put(connection.getCid(), token);
+			}
 			
 			mActiveTokenMapChanged = true;
 			LoggerSystem.info(LogType.DEFAULT, "NetSystem Bind Connection : " + connection.getCid());
 		}
 	}
 	
-	public void errorConnection(String guid)
+	public synchronized void errorConnection(String guid)
 	{
 		// it seems to be done as this.
 		LoggerSystem.error(LogType.DEFAULT, "NetSystem Error Connection : " + guid);
@@ -154,12 +167,16 @@ public class NetSystem implements LifeCycle{
 		//endConnection(guid);
 	}
 	
-	public void endConnection(String guid)
+	public synchronized void endConnection(String guid)
 	{
 		Token token = mActiveTokenMap.get(guid);
 		if (token != null)
 		{
-			mActiveTokenMap.remove(guid);
+
+			synchronized(mActiveTokenMap)
+			{
+				mActiveTokenMap.remove(guid);
+			}
 			
 			mTokenPool.release(token);
 

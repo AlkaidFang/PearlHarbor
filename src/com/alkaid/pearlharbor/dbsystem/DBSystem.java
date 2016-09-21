@@ -10,6 +10,8 @@ public class DBSystem implements LifeCycle{
 	
 	private IDatabaseHandler mDatabaseHandler = null;
 	
+	private boolean mInitResult = false;
+	
 	private static DBSystem instance = null;
 	public static DBSystem getInstance()
 	{
@@ -29,35 +31,59 @@ public class DBSystem implements LifeCycle{
 
 	private DBSystem()
 	{
-		mDatabaseHandler = new RedisDatabaseHandler();
-		mDatabaseHandler.setConfig(ServerConfig.DB_SERVER_IP, ServerConfig.DB_SERVER_PORT);
+		mInitResult = false;
 	}
 
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
 		
-		mDatabaseHandler.init();
+		if (ServerConfig.DB_SERVER_ACTIVE)
+		{
+			setDBType(DBType.REDIS);
+			mDatabaseHandler.setConfig(ServerConfig.DB_SERVER_IP, ServerConfig.DB_SERVER_PORT);
+			
+			mInitResult = mDatabaseHandler.init();
+			
+		}
+		else
+		{
+			mInitResult = true;
+		}
 		
-		return true;
+		return mInitResult;
+		
 	}
 
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
-		
-		mDatabaseHandler.tick();
+		if (mInitResult && ServerConfig.DB_SERVER_ACTIVE)
+			mDatabaseHandler.tick();
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
-		mDatabaseHandler.destroy();
+		if (mInitResult && ServerConfig.DB_SERVER_ACTIVE)
+			mDatabaseHandler.destroy();
+	}
+	
+	public void setDBType(DBType type)
+	{
+		switch(type)
+		{
+			case REDIS:mDatabaseHandler = new RedisDatabaseHandler();break;
+			default:break;
+		}
 	}
 
 	private boolean process(Player player, DatabaseFuncType functionType)
 	{
+		if (!mInitResult || !ServerConfig.DB_SERVER_ACTIVE)
+			return false;
+		
 		DatabaseError nError = mDatabaseHandler.schedulerPlayerData(player, functionType);
 		
 		if (nError == DatabaseError._ERROR_OK_)

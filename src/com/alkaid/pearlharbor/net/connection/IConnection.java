@@ -4,6 +4,8 @@ public class IConnection {
 	
 	private String mCid;
 	private Object mConnection;
+	private String mRemoteIp;
+	private int mRemotePort;
 	
 	public IConnection()
 	{
@@ -29,6 +31,22 @@ public class IConnection {
 	public Object getReal() {
 		// TODO Auto-generated method stub
 		return mConnection;
+	}
+	
+	public void setRemoteIpPort(String ip, int port)
+	{
+		mRemoteIp = ip;
+		mRemotePort = port;
+	}
+	
+	public String getRemoteIp()
+	{
+		return mRemoteIp;
+	}
+	
+	public int getRemotePort()
+	{
+		return mRemotePort;
 	}
 }
 

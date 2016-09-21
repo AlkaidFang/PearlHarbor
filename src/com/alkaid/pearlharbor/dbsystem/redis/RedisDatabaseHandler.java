@@ -38,9 +38,12 @@ public class RedisDatabaseHandler implements IDatabaseHandler{
 		
 		Jedis db = mRedisHelper.getDb();
 		
+		if (db == null)
+			ret = false;
+			
 		try
 		{
-			if (!db.exists("GLOBAL:GUID_BEGIN_INDEX") && !db.exists("GLOBAL:GUID_END_INDEX"))
+			if (db != null && !db.exists("GLOBAL:GUID_BEGIN_INDEX") && !db.exists("GLOBAL:GUID_END_INDEX"))
 			{
 				Transaction tran = db.multi();
 				tran.set("GLOBAL:GUID_BEGIN_INDEX", 10000 + "");

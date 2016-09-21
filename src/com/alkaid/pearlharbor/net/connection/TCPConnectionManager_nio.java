@@ -144,8 +144,10 @@ public class TCPConnectionManager_nio implements IConnectionManager, ThreadCallb
 	{
 		List<String> activeTokenKeys = NetSystem.getInstance().getActiveTokenKeys();
 		Token token = null;
-		for (String key : activeTokenKeys)
+		String key = null;
+		for (int i = 0; i < activeTokenKeys.size(); ++i)
 		{
+			key = activeTokenKeys.get(i);
 			token = NetSystem.getInstance().getTokenByConnection(key);
 			if (token == null || !token.isUsing())
 			{
@@ -174,8 +176,10 @@ public class TCPConnectionManager_nio implements IConnectionManager, ThreadCallb
 	{
 		List<String> activeTokenKeys = NetSystem.getInstance().getActiveTokenKeys();
 		Token token = null;
-		for (String key : activeTokenKeys)
+		String key = null;
+		for (int i = 0; i < activeTokenKeys.size(); ++i)
 		{
+			key = activeTokenKeys.get(i);
 			token = NetSystem.getInstance().getTokenByConnection(key);
 			if (token == null || !token.isUsing())
 			{
@@ -212,6 +216,7 @@ public class TCPConnectionManager_nio implements IConnectionManager, ThreadCallb
 			
 			}
 		}
+
 	}
 
 	@Override

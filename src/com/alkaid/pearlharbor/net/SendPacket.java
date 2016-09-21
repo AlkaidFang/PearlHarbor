@@ -23,7 +23,7 @@ public class SendPacket implements IPacket{
     {
         if (mProto != null)
         {
-        	com.google.protobuf.GeneratedMessage msg = (com.google.protobuf.GeneratedMessage)mProto;
+        	com.google.protobuf.AbstractMessage msg = (com.google.protobuf.AbstractMessage)mProto;
         	mProtoBytes = msg.toByteArray();
         }
     }
