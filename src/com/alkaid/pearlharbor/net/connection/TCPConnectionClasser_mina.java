@@ -14,6 +14,7 @@ import org.apache.mina.filter.codec.ProtocolDecoderAdapter;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import org.apache.mina.filter.codec.ProtocolEncoderAdapter;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
+import org.apache.mina.filter.logging.LogLevel;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
@@ -30,7 +31,13 @@ public class TCPConnectionClasser_mina {
 		public void start()
 		{
 			IoAcceptor macceptor = new NioSocketAcceptor();
-			macceptor.getFilterChain().addLast("logger", new LoggingFilter());
+			LoggingFilter loggingFilter = new LoggingFilter();
+			loggingFilter.setSessionClosedLogLevel(LogLevel.NONE);
+			loggingFilter.setSessionCreatedLogLevel(LogLevel.NONE);
+			loggingFilter.setSessionOpenedLogLevel(LogLevel.NONE);
+			loggingFilter.setMessageSentLogLevel(LogLevel.NONE);
+			macceptor.getFilterChain().addLast("logger", loggingFilter);
+			
 			macceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new MinaCodec.Encoder(), new MinaCodec.Decoder()));
 			macceptor.getSessionConfig().setReadBufferSize(4096);
 			// macceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
