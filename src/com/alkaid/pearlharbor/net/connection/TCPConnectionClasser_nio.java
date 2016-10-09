@@ -29,6 +29,28 @@ public class TCPConnectionClasser_nio {
 			public void onThreadLogicContext(AsyncThread thread) {
 				// TODO Auto-generated method stub
 				
+				while (thread.IsWorking())
+				{
+					select();
+					
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+			}
+
+			@Override
+			public void onThreadFinishedContext() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			private void select()
+			{
 				try {
 					while(mSelector.select() > 0) // This method performs a blocking selection operation. It returns only after at least one channel is selected
 					{
@@ -95,13 +117,6 @@ public class TCPConnectionClasser_nio {
 					e.printStackTrace();
 				}
 			}
-
-			@Override
-			public void onThreadFinishedContext() {
-				// TODO Auto-generated method stub
-				
-			}
-			
 		}
 		
 		private Selector mSelector = null;
@@ -132,7 +147,19 @@ public class TCPConnectionClasser_nio {
 			}
 		}
 
-		
+		public void stop()
+		{
+			mSelectThread.SyncStop();
+			
+			try {
+				mChannel.close();
+				mSelector.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
 	
 }

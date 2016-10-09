@@ -30,28 +30,33 @@ public class TCPConnectionClasser_mina {
 		
 		public void start()
 		{
-			IoAcceptor macceptor = new NioSocketAcceptor();
+			mAcceptor = new NioSocketAcceptor();
 			LoggingFilter loggingFilter = new LoggingFilter();
 			loggingFilter.setSessionClosedLogLevel(LogLevel.NONE);
 			loggingFilter.setSessionCreatedLogLevel(LogLevel.NONE);
 			loggingFilter.setSessionOpenedLogLevel(LogLevel.NONE);
 			loggingFilter.setMessageSentLogLevel(LogLevel.NONE);
-			macceptor.getFilterChain().addLast("logger", loggingFilter);
+			mAcceptor.getFilterChain().addLast("logger", loggingFilter);
 			
-			macceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new MinaCodec.Encoder(), new MinaCodec.Decoder()));
-			macceptor.getSessionConfig().setReadBufferSize(4096);
+			mAcceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new MinaCodec.Encoder(), new MinaCodec.Decoder()));
+			mAcceptor.getSessionConfig().setReadBufferSize(4096);
 			// macceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
 			mServerHandler = new MinaServerHandler();
-			macceptor.setHandler(mServerHandler);
+			mAcceptor.setHandler(mServerHandler);
 			
 			try {
-				macceptor.bind(new InetSocketAddress(ServerConfig.NET_TCP_IP, ServerConfig.NET_TCP_PORT));
+				mAcceptor.bind(new InetSocketAddress(ServerConfig.NET_TCP_IP, ServerConfig.NET_TCP_PORT));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
+		public void stop()
+		{
+			mAcceptor.unbind();
+			mAcceptor.dispose();
+		}
 	}
 	
 	private static class MinaServerHandler extends IoHandlerAdapter

@@ -50,7 +50,8 @@ public class TCPConnectionManager_mina implements IConnectionManager, ThreadCall
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+		mSendThread.Stop();
+		mina.stop();
 	}
 
 

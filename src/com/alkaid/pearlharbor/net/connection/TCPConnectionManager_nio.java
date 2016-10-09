@@ -53,7 +53,8 @@ public class TCPConnectionManager_nio implements IConnectionManager, ThreadCallb
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+		mSendThread.Stop();
+		nioc.stop();
 	}
 
 	@Override

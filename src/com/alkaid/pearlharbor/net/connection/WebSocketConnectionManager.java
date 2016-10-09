@@ -121,7 +121,7 @@ public class WebSocketConnectionManager implements IConnectionManager, ThreadCal
 	@Override
 	public void send() {
 		// TODO Auto-generated method stub
-		mSendThread.Start();
+		//mSendThread.Start();
 	}
 
 	@Override

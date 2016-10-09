@@ -12,8 +12,9 @@ public class ServerConfig {
 	
 	//net config
 	public final static int MAX_SOCKET_BUFFER_SIZE = 4096;
-	public final static String NET_TCP_IP = "172.31.1.142";
+	//public final static String NET_TCP_IP = "172.31.1.142";
 	//public final static String NET_TCP_IP = "192.168.1.111";
+	public final static String NET_TCP_IP = "0.0.0.0";
 	public final static int NET_TCP_PORT = 33333; 
 	// p2p hole masker config
 	public final static int NET_TCP_PORT_P2P = 33334;
