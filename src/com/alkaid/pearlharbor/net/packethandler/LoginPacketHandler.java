@@ -13,7 +13,7 @@ public class LoginPacketHandler implements IPacketHandler{
 	@Override
 	public int getType() {
 		// TODO Auto-generated method stub
-		return PacketType._Type_Login_;
+		return PacketType._CS_Login_;
 	}
 
 	@Override
@@ -31,7 +31,8 @@ public class LoginPacketHandler implements IPacketHandler{
 		
 		if (login == null) return false;
 		
-		//Player player = PlayerSystem.getInstance().onPlayerLogin(arg);
+		Player player = PlayerSystem.getInstance().onLoginHome(login.getAccount());
+		token.bindPlayer(player);
 		
 		return true;
 	}

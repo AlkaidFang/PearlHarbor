@@ -93,7 +93,7 @@ public class PlayerSystem implements LifeCycle{
 		{
 			if (arg != null)
 			{
-				mActivePlayer.put(arg.mPlayerData.mGuid, arg);
+				mActivePlayer.remove(arg.mPlayerData.mGuid);
 			}
 		}
 	}
@@ -127,7 +127,7 @@ public class PlayerSystem implements LifeCycle{
 		
 		// active this data
 		player.Using();
-		mActivePlayer.put(player.mPlayerData.mHomeData.mAccount, player);		
+		onPlayerLogin(player);
 		
 		return player;
 	}

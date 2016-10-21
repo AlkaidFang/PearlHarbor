@@ -12,7 +12,7 @@ public class HelloPacketHandler implements IPacketHandler{
 	@Override
 	public int getType() {
 		// TODO Auto-generated method stub
-		return PacketType._Type_HelloWorld;
+		return PacketType._CS_HelloWorld;
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class HelloPacketHandler implements IPacketHandler{
 		if (hello == null) return false;
 		
 		XMessage.SC_HelloWorldResult proto = XMessage.SC_HelloWorldResult.newBuilder().setResultCode(888).build();
-		SendPacket packet = new SendPacket(PacketType._Type_HelloWorldResult);
+		SendPacket packet = new SendPacket(PacketType._CS_HelloWorld);
 		packet.setProto(proto);
 		token.sendPacket(packet);
 		

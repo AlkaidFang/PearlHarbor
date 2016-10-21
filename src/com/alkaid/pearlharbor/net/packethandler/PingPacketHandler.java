@@ -14,7 +14,7 @@ public class PingPacketHandler implements IPacketHandler{
 	@Override
 	public int getType() {
 		// TODO Auto-generated method stub
-		return PacketType._Type_Ping_;
+		return PacketType._CS_Ping_;
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class PingPacketHandler implements IPacketHandler{
 		if (proto == null) return false;
 
 		XMessage.SC_PingResult proto1 = XMessage.SC_PingResult.newBuilder().setTimestamp(proto.getTimestamp()).build();
-		SendPacket packet = new SendPacket(PacketType._Type_Ping_Result_);
+		SendPacket packet = new SendPacket(PacketType._CS_Ping_);
 		packet.setProto(proto1);
 		token.sendPacket(packet);
 		
