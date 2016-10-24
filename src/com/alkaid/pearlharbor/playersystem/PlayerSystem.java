@@ -76,24 +76,26 @@ public class PlayerSystem implements LifeCycle{
 		mPlayerPool.release(arg);
 	}
 	
-	public void onPlayerLogin(Player arg)
+	public void playerLogin(Player arg)
 	{
+		arg.Using();
 		synchronized(mActivePlayer)
 		{
 			if (arg != null)
 			{
-				mActivePlayer.put(arg.mPlayerData.mGuid, arg);
+				mActivePlayer.put(arg.mPlayerData.mHomeData.mAccount, arg);
 			}
 		}
 	}
 	
-	public void onPlayerLogout(Player arg)
+	public void playerLogout(Player arg)
 	{
+		releasePlayer (arg);
 		synchronized(mActivePlayer)
 		{
 			if (arg != null)
 			{
-				mActivePlayer.remove(arg.mPlayerData.mGuid);
+				mActivePlayer.remove(arg.mPlayerData.mHomeData.mAccount);
 			}
 		}
 	}
@@ -126,8 +128,7 @@ public class PlayerSystem implements LifeCycle{
 		}
 		
 		// active this data
-		player.Using();
-		onPlayerLogin(player);
+		playerLogin(player);
 		
 		return player;
 	}
@@ -136,25 +137,43 @@ public class PlayerSystem implements LifeCycle{
 	 * 
 	 * @author fangjun
 	 * @description enter the game world, so load the avatar data
+	 * 请不要使用这个接口，请自己在handler中处理功能
 	 * @date 2016年3月8日
 	 */
-	public void onLoginGame(Player player)
+	public void onLoginGame(Player player, String avatarGuid)
 	{
 		if (null == player) return;
 		
-		String guid = player.mPlayerData.mAvatarData.mAvatarGuid;
+		String guid = avatarGuid;
+		player.mPlayerData.mAvatarData.mAvatarGuid = avatarGuid;
 		
-		if (!DBSystem.getInstance().loadPlayerAvatarData(player))
+		if (guid.isEmpty() || !DBSystem.getInstance().loadPlayerAvatarData(player))
 		{
+			// 输入为空
 			// db donot contain this avatar, to make new one;
 			int avatarindex = DBSystem.getInstance().getNewAvatarIndex();
 			guid = String.format(AvatarData.S_AvatarGuidFormat, Game.getInstance().getId(), avatarindex);
 			player.mPlayerData.mAvatarData.newPlayer();
 			player.mPlayerData.mAvatarData.mAvatarGuid = guid;
-			player.mPlayerData.mHomeData.mAvatarGuids.add(guid);
+			player.mPlayerData.mHomeData.addAvatar(guid);
 			
 			DBSystem.getInstance().savePlayerAllInfo(player);
 		}
+	}
+	
+	/**
+	 * 
+	 * @author fangjun
+	 * @description 下线一个角色
+	 * @date 2016年3月8日
+	 */
+	public void onLogoutAvatar(Player player)
+	{
+		if (null == player) return;
+		
+		String avatarGuid = player.mPlayerData.mAvatarData.mAvatarGuid;
+		DBSystem.getInstance().savePlayerAvatarData(player);
+		player.mPlayerData.mAvatarData.reset();
 	}
 	
 }

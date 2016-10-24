@@ -16,11 +16,17 @@ public class HomeData {
 	public int mAvatarCount;	// his game avatar count
 	public List<String> mAvatarGuids; // avatar guid list
 	
+//	-----以下属性为新增，未做存储
+	public List<String> mAvatarNames; 
+	public List<Integer> mAvatarLevels;
+	
 	public HomeData()
 	{
 		mAccount = "";
 		mAvatarCount = 0;
 		mAvatarGuids = new ArrayList<String>();
+		mAvatarNames = new ArrayList<String>();
+		mAvatarLevels = new ArrayList<Integer>();
 	}
 	
 	public void reset()
@@ -28,6 +34,8 @@ public class HomeData {
 		mAccount = "";
 		mAvatarCount = 0;
 		mAvatarGuids.clear();
+		mAvatarNames.clear();
+		mAvatarLevels.clear();
 	}
 	
 	public void newPlayer()
@@ -35,6 +43,8 @@ public class HomeData {
 		// when first generate a player, this function will give default data.
 		mAvatarCount = 0;
         mAvatarGuids.clear();
+		mAvatarNames.clear();
+		mAvatarLevels.clear();
 	}
 	
 	public void addAvatar(String avatarGuid)

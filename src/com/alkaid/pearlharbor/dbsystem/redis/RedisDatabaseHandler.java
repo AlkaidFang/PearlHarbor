@@ -169,7 +169,7 @@ public class RedisDatabaseHandler implements IDatabaseHandler{
 			int i = 0;
 			for (String guid : player.mPlayerData.mHomeData.mAvatarGuids)
 			{
-				data.put("mAvatarGuids" + i, guid);
+				data.put("mAvatarGuids" + (i++), guid);
 			}
 			
 			db.hmset(key, data);

@@ -1,8 +1,6 @@
 package com.alkaid.pearlharbor.playersystem;
 
 public class PlayerData {
-
-	public String mGuid;
 	
     // 家园数据
     public HomeData mHomeData;
